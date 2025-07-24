@@ -14,17 +14,19 @@ public abstract class Tiempo {
     }
 
     public void correr() { //Reloj y cronometro
-        segundo++;
-        if(segundo==60) {
-            segundo=9;
-            minuto++;
-        }
-        if(minuto==60) {
-            minuto=0;
-            hora++;
-        }
-        if(hora==24) {
-            hora=0;
+        if (this.activo){
+            segundo++;
+            if(segundo==60) {
+               segundo=9;
+               minuto++;
+            }
+                if(minuto==60) {
+                   minuto=0;
+                   hora++;
+                    }
+                    if(hora==24) {
+                       hora=0;
+            }
         }
     }
     
