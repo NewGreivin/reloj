@@ -4,11 +4,13 @@ public abstract class Tiempo {
     protected int hora;
     protected int minuto;
     protected int segundo;
+    protected boolean activo;
 
     public Tiempo() {
         this.hora = 0;
         this.minuto = 0;
         this.segundo = 0;
+        this.activo = false;
     }
 
     public void correr() { //Reloj y cronometro
@@ -45,4 +47,8 @@ public abstract class Tiempo {
         
         return h+ ":"+ m + ":" + s;
     }
+    
+    
+    
+    
 }
