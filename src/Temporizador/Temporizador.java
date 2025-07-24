@@ -4,44 +4,51 @@
  */
 package Temporizador;
 
+import Intefaces.Configurable;
+import Intefaces.Controlable;
+import RelojDigital.Tiempo;
+
 /**
  *
  * @author Jonathan
  */
-public class Temporizador {
-    private int segundosRest;
-    private boolean enEjecucion;
+public class Temporizador extends Tiempo implements Configurable, Controlable{
 
-    public Temporizador(int segundosRest) {
-        this.segundosRest = segundosRest;
-        this.enEjecucion = enEjecucion;
-    }
-    
-    public int getSegundosRest() {
-        return segundosRest;
-    }
-     
-    public void iniciar(){
-        enEjecucion = true;
-    }
-    
-    public void pausar(){
-        enEjecucion = false;
-    }
-    
-    public void reiniciar(int newSegundos){
-        this.segundosRest = newSegundos;
-        this.enEjecucion = false;
-    }
-    
-    public void decrementar(){
-        if(enEjecucion && segundosRest > 0){
-            segundosRest--;
-        }
+    @Override
+    public void configurar(int horas, int minutos, int segundos) {
+        this.hora=hora;
+        this.minuto=minuto;
+        this.segundo=segundo;
     }
 
-   public boolean estaenEjecucion(){
-       return enEjecucion;
-   }
-   
+    @Override
+    public void iniciar() {
+        this.activo = true;
+    }
+
+    @Override
+    public void detener() {
+        this.activo = false;
+    }
+
+    @Override
+    public void correr() {
+         if (this.activo){
+            segundo--;
+            if(segundo==-1) {
+               segundo=59;
+               minuto--;
+                if(minuto==-1) {
+                   minuto=59;
+                   hora--;
+                    if(hora==-1){
+                        hora=0;
+                        minuto=0;
+                        segundo=0;
+                        this.activo = false;
+                    }
+                }
+            }
+         }
+    }   
 }
