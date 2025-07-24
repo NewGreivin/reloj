@@ -4,54 +4,24 @@
  */
 package Cronometro;
 
+import Intefaces.Controlable;
+import RelojDigital.Tiempo;
+
 /**
  *
  * @author Ricardo Chaves
  */
-public class Cronometro {
-    private int segundostranscurrido;
-    private boolean ejecucion;
+public class Cronometro extends Tiempo implements Controlable {
 
-    public int getSegundostranscurrido() {
-        return segundostranscurrido;
+    @Override
+    public void iniciar() {
+        
     }
-    
-    public boolean ejecucion(){
-        return ejecucion;    
-    }
-    
-    //constructor
-    public Cronometro() {
-        this.segundostranscurrido = 0;
-        this.ejecucion = false;
-    }
-    
-    //metodos
 
-    public void iniciar(){
-        this.ejecucion=true;
+    @Override
+    public void detener() {
+        
     }
-    
-    public void pausar(){
-        this.ejecucion=false;
-    }
-    
-    public void reiniciar(){
-        this.segundostranscurrido=0;
-        this.ejecucion=false;
-    }
-    
-    
-    //Formato
-    
-    public String obtenerformatoHHMMSS(){
-        int horas = segundostranscurrido / 3600;
-        int minutos = (segundostranscurrido % 3600) / 60;
-        int segundos = segundostranscurrido % 60;
-    
-        return String.format("%02d:%02d:%02d", horas, minutos, segundos);
-    } 
-    
     
     
 }

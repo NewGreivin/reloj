@@ -12,6 +12,12 @@ import Intefaces.Configurable;
  */
 public class Reloj2 extends Tiempo implements Configurable {
 
+    public Reloj2() {
+        super();
+        this.activo = true;
+    }
+    
+    
     @Override
     public void configurar(int horas, int minutos, int segundos) {
         this.hora=horas;
